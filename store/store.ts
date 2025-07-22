@@ -2,12 +2,14 @@ import { configureStore } from '@reduxjs/toolkit'
 import viewModeReducer from './slices/viewMode'
 import dashboardReducer from './slices/dashboard'
 import reportUIReducer from './slices/report'
+import reportDataReducer from './slices/reportData'
 
 export const store = configureStore({
   reducer: {
     viewMode: viewModeReducer,
     dashboard: dashboardReducer,
-    reportUI: reportUIReducer
+    reportUI: reportUIReducer,
+    reportData: reportDataReducer
   }
 })
 

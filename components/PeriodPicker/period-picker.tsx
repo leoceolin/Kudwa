@@ -21,7 +21,6 @@ export function PeriodPicker() {
       <Select
         value={viewMode}
         onValueChange={(val) => {
-          setLoading(true)
           dispatch(setViewMode(val as 'monthly' | 'quarterly' | 'yearly'))
         }}
       >
