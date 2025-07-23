@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from '@/store/hooks'
 import { Loader2 } from 'lucide-react'
 import { PeriodPicker } from '@/components/PeriodPicker/period-picker'
 import { toggleNode } from '@/store/slices/report'
+import type { JSX } from 'react'
 
 export default function Reports() {
   const dispatch = useAppDispatch()
