@@ -33,7 +33,7 @@ export function CustomLegend({ payload = [] }: CustomLegendProps) {
         return (
           <Tooltip key={name + value}>
             <TooltipTrigger asChild>
-              <span variant="outline">
+              <span>
                 <span
                   className="w-3 h-3 rounded-full mr-2 inline-block"
                   style={{

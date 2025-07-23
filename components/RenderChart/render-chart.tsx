@@ -23,7 +23,7 @@ export function ChartRenderer({
   chartType: string
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   data: any[]
-  series: { name: string }[]
+  series: { name: string; values: number }[]
 }) {
   switch (chartType) {
     case 'line':

@@ -11,23 +11,36 @@ export function CustomDonutLabel({
   index,
   name
 }: PieLabelRenderProps & { name: string }) {
-  if (percent < 0.02) return null
+  // Guard clause for all required props
+  if (
+    typeof cx !== 'number' ||
+    typeof cy !== 'number' ||
+    typeof midAngle !== 'number' ||
+    typeof outerRadius !== 'number' ||
+    typeof percent !== 'number' ||
+    typeof index !== 'number' ||
+    typeof name !== 'string' ||
+    percent < 0.02
+  ) {
+    return null
+  }
 
   const radius = outerRadius + 40
-  const x = cx + radius * Math.cos(-midAngle * RADIAN)
-  const y = cy + radius * Math.sin(-midAngle * RADIAN)
+  const angle = -midAngle * RADIAN
+  const x = cx + radius * Math.cos(angle)
+  const y = cy + radius * Math.sin(angle)
 
+  // Split name into two lines
   const words = name.split(' ')
-  const firstLine = words.slice(0, Math.ceil(words.length / 2)).join(' ')
-  const secondLine = words.slice(Math.ceil(words.length / 2)).join(' ')
-
-  const labelYOffset = index * 1.5
+  const mid = Math.ceil(words.length / 2)
+  const firstLine = words.slice(0, mid).join(' ')
+  const secondLine = words.slice(mid).join(' ')
 
   return (
     <text
       className="text-inherit"
       x={x}
-      y={y + labelYOffset}
+      y={y + index * 1.5}
       textAnchor={x > cx ? 'start' : 'end'}
       dominantBaseline="central"
       fontSize={12}
